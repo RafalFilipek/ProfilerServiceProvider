@@ -20,15 +20,12 @@ class ProfilerExtension extends \Twig_Extension {
 
     public function getProfiler()
     {
-        return $this->twig->render('__profiler-panel.twig', array(
-            'data' => array('foo' => 'bar')
-        ));
+        return $this->twig->render('__profiler-panel.twig');
     }
 
     public function getName()
     {
         return 'profiler';
     }
-
 
 }
