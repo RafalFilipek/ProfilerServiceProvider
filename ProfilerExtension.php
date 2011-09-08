@@ -5,7 +5,6 @@ namespace Rafal\ProfilerExtension;
 use Silex\Application;
 use Silex\ExtensionInterface;
 use Rafal\ProfilerExtension\Twig\ProfilerExtension as TwigProfileExtension;
-use \ArrayObject;
 use Symfony\Component\HttpFoundation\Cookie;
 
 class ProfilerExtension implements ExtensionInterface {
@@ -16,7 +15,7 @@ class ProfilerExtension implements ExtensionInterface {
             $app['profiler.data_url'] = '/__fetch_profiler_data';
         }
         if (!$app['profiler.cookie_name']) {
-            $app['profiler.cookie_name'] = 'web_profiler';
+            $app['profiler.cookie_name'] = 'webprofiler';
         }
         $app->get($app['profiler.data_url'], function() use($app){
             $data = unserialize(urldecode($app['request']->cookies->get($app['profiler.cookie_name'])));
