@@ -23,8 +23,8 @@ class ProfilerServiceProvider implements ServiceProviderInterface {
                 'data' => $data
             ));
         });
-
-        $app['twig.loader']->addPath(__DIR__.'/Resources/views/');
+        $loader = new \Twig_Loader_Filesystem(__DIR__.'/Resources/views/');
+        $app['twig.loader']->addLoader($loader);
 
         $app['dispatcher']->addListener('silex.after', function($event) use($app) {
             $data = array();
@@ -49,7 +49,7 @@ class ProfilerServiceProvider implements ServiceProviderInterface {
             $event->getResponse()->headers->setCookie(new Cookie($app['profiler.cookie_name'], urlencode(serialize($data))));
         });
 
-        $app['twig']->addExtension(new ProfileExtension($app['twig']));
+        $app['twig']->addExtension(new ProfilerExtension($app['twig']));
 
     }
 }
