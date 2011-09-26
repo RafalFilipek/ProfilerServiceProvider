@@ -1,6 +1,6 @@
 <?php
 
-namespace Rafal\ProfilerExtension\Twig;
+namespace Rafal\ProfilerServiceProvider\Twig;
 
 class ProfilerExtension extends \Twig_Extension {
     

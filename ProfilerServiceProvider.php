@@ -1,13 +1,13 @@
 <?php
 
-namespace Rafal\ProfilerExtension;
+namespace Rafal\ProfilerServiceProvider;
 
 use Silex\Application;
-use Silex\ExtensionInterface;
-use Rafal\ProfilerExtension\Twig\ProfilerExtension as TwigProfileExtension;
+use Silex\ServiceProviderInterface;
+use Rafal\ProfilerServiceProvider\Twig\ProfilerExtension;
 use Symfony\Component\HttpFoundation\Cookie;
 
-class ProfilerExtension implements ExtensionInterface {
+class ProfilerServiceProvider implements ServiceProviderInterface {
     
     public function register(Application $app)
     {
@@ -49,7 +49,7 @@ class ProfilerExtension implements ExtensionInterface {
             $event->getResponse()->headers->setCookie(new Cookie($app['profiler.cookie_name'], urlencode(serialize($data))));
         });
 
-        $app['twig']->addExtension(new TwigProfileExtension($app['twig']));
+        $app['twig']->addExtension(new ProfileExtension($app['twig']));
 
     }
 }
