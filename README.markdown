@@ -45,4 +45,4 @@ Example output
 
 License
 -------
-Memcache Service Provider is licensed under the MIT license.
+Profiler Service Provider is licensed under the MIT license.
