@@ -6,12 +6,12 @@ Profier Service Provider is something like Profiler in Symfony :) Not so powerfu
 Installation (clone)
 ------------
     cd /path/to/your/project
-    git clone git@github.com:RafalFilipek/ProfilerServiceProvider.git vendor/rafal/src/Rafal/ProfilerServiceProvider
+    git clone git://github.com/RafalFilipek/ProfilerServiceProvider.git vendor/rafal/src/Rafal/ProfilerServiceProvider
 
 Installation (submodule)
 ------------------------
     cd /path/to/your/project
-    git submodule add git@github.com:RafalFilipek/ProfilerServiceProvider.git vendor/rafal/src/Rafal/ProfilerServiceProvider
+    git submodule add git://github.com/RafalFilipek/ProfilerServiceProvider.git vendor/rafal/src/Rafal/ProfilerServiceProvider
 
 Registering
 -----------
