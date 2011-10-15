@@ -8,13 +8,13 @@ use Rafal\ProfilerServiceProvider\Twig\ProfilerExtension;
 use Symfony\Component\HttpFoundation\Cookie;
 
 class ProfilerServiceProvider implements ServiceProviderInterface {
-    
+
     public function register(Application $app)
     {
-        if (!$app['profiler.data_url']) {
+        if (!isset($app['profiler.data_url'])) {
             $app['profiler.data_url'] = '/__fetch_profiler_data';
         }
-        if (!$app['profiler.cookie_name']) {
+        if (!isset($app['profiler.cookie_name'])) {
             $app['profiler.cookie_name'] = 'webprofiler';
         }
         $app->get($app['profiler.data_url'], function() use($app){
